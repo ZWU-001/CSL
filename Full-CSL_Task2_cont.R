@@ -791,7 +791,7 @@ obs_profile_plot_df_all$profile <- factor(
 )
 
 ## ------------------------------------------------------------
-## Faceted plot of covariate-specific full-CSL interval curves
+## Faceted plot of continuous covariate-specific Full-CSL interval curves
 ## ------------------------------------------------------------
 
 p_obs_profiles_full_facet_all <- ggplot(
