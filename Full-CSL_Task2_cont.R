@@ -427,7 +427,7 @@ dominant_idx <- which(w_hat > 0.5)
 
 
 ## ------------------------------------------------------------
-## Covariate-specific Full-CSL curves under representative profiles
+## Continuous covariate-specific Full-CSL curves under representative profiles
 ## ------------------------------------------------------------
 
 ## Continuous covariates to be varied
