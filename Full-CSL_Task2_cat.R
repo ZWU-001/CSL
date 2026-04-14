@@ -84,7 +84,7 @@ fit_base_manual <- function(k, X, y) {
   stop("k must be 1..5 for base learners.")
 }
 
-## Wrapper for fitting the first five base learners
+## Wrapper for predicting from the first five base learners
 pred_base_manual <- function(k, fit, newX) {
   if (k == 1) return(pred_lm(fit, newX))
   if (k == 2) return(pred_gam(fit, newX))
