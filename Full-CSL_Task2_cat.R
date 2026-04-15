@@ -1,7 +1,6 @@
 rm(list=ls())
 
 ## Required packages
-library(mvtnorm)
 library(gamlss)
 library(nnls)
 library(mgcv)
