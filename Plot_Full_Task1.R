@@ -8,9 +8,10 @@ library(ggplot2)
 setwd("/Users/jameswu/Desktop/CSL_application/Github")
 
 ## Load the xlsx file
-files <- c(
-  "Results_Full_Task1.xlsx"
-)
+# files <- "Results_Full_Task1_original.xlsx"
+
+## With outliers removed
+files <- "Results_Full_Task1_removal.xlsx"
 
 plot_test_df <- lapply(files, read_xlsx) %>%
   bind_rows() %>%
