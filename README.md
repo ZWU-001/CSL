@@ -15,8 +15,16 @@ This case study has two main objectives:
 1. Assess the performance of Split-CSL and Full-CSL in terms of empirical coverage and average interval width on the testing set.
 2. Investigate, for three representative profiles with different serum creatinine levels, how the corresponding prediction intervals and point predictions change as one covariate varies.
 
-# Folds and Files:
+# Folders and Files
 
+The repository is organised according to the two main empirical tasks considered in the case study, under both Full-CSL and Split-CSL settings, together with benchmark and sensitivity analyses.
 
+## `Full-CSL-Task1/`
+Code and output files for **Task 1** under the full conformal setting, namely the evaluation of Full-CSL on the testing set in terms of empirical coverage and average interval width.
+
+- `Full-CSL_Task1.R`: main script for Full-CSL testing-set evaluation.
+- `Plot_Full_Task1.R`: script for plotting Full-CSL prediction intervals for ordered testing observations.
+- `Results_Full_Task1_original.xlsx`: results for the main analysis based on the full data set.
+- `Results_Full_Task1_removal.xlsx`: results for the sensitivity analysis after removing observations with `LBXSCR > 1.5`.
 
 
