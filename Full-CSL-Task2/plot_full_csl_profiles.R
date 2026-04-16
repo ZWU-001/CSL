@@ -8,10 +8,10 @@ library(ggplot2)
 setwd("/Users/jameswu/Desktop/CSL_application/Github")
 
 ## Load the xlsx file
-# files <- "Results_Full_Task2_original.xlsx"
+# files <- "results_full_csl_profiles_full_data.xlsx"
 
 ## With outliers removed
-files <- "Results_Full_Task2_removal.xlsx"
+files <- "results_full_csl_profiles_outlier_removed.xlsx"
 
 short_var_labels <- c(
   x1  = "LBXSAL",
