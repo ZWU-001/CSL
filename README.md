@@ -1,57 +1,89 @@
-# Conformalized Super Learning for Uncertainty Quantification in Predictions
+# CSL: Conformalized Super Learning for Uncertainty Quantification in Predictions
 
-This repository contains the R code used in the case study in:
+## Overview
 
-> Wu, Z., Leisen, F., Luque-Fernandez, M.A. and Rubio, F.J. (2026). Conformalized Super Learning for Uncertainty Quantification in Predictions. Submitted.
+This repository contains the R code and results used to reproduce the case
+study in:
 
-# Description
+> Wu, Z., Leisen, F., Luque-Fernandez, M.A. and Rubio, F.J. (2026).
+> Conformalized Super Learning for Uncertainty Quantification in Predictions.
+> *Submitted.*
 
-The data used in this study are drawn from the National Health and Nutrition Examination Survey (NHANES), August 2021–August 2023 cycle. We consider serum creatinine, `LBXSCR` (mg/dL), as the response variable, as it is a key biomarker of kidney function and a central component in the estimation of glomerular filtration rate (eGFR). Participants with kidney conditions are excluded because impaired renal function directly affects creatinine levels. Pregnant participants are also excluded, as creatinine levels are systematically lower during pregnancy (Davison and Hytten, 1974). The analysis includes 18 covariates, comprising 12 continuous and 6 categorical variables, and the resulting sample size is 5027. As a sensitivity analysis, observations with response values greater than 1.5 are removed, yielding a reduced sample size of 4923.
+The **Conformalized Super Learner (CSL)** framework combines
+**conformal prediction (CP)** with a **Super Learner (SL)** ensemble to
+construct prediction intervals with finite-sample coverage guarantees, without
 
-We apply the Conformalized Super Learner (CSL) framework to the log-transformed response, and the prediction intervals will be transformed back to the original scale at the end. This approach combines conformal prediction (CP) with the Super Learner (SL) ensemble through majority vote to construct prediction intervals under both split and full conformal settings. The base learners are linear regression (LM), Least Absolute Shrinkage and Selection Operator (LASSO), generalized additive models (GAM), neural networks (NNET), random forests (RF), and generalized additive models for location, scale and shape (GAMLSS). The non-conformity score is taken as the absolute raw residual for LM, LASSO, GAM, NNET, and RF, and as the absolute quantile residual for GAMLSS since it accounts for heteroscedasticity.
+## Requirements
 
-This case study has two main objectives:
+The following R packages are required:
 
-1. Assess the performance of Split-CSL and Full-CSL in terms of empirical coverage and average interval width on the testing set.
-2. Investigate, for three representative profiles with different serum creatinine levels, how the corresponding prediction intervals and point predictions change as one covariate varies.
+```r
+install.packages(c("SuperLearner", "glmnet", "mgcv", "nnet",
+                   "randomForest", "gamlss", "conformalInference",
+                   "ggplot2", "readxl", "writexl"))
+```
 
-# Folders and Files
+> Verify exact dependencies against the `library()` calls at the top of each
+> script, as the list above may be incomplete.
 
-The repository is organised according to the two main empirical tasks considered in the case study, under both Full-CSL and Split-CSL settings, together with benchmark and sensitivity analyses.
+## Repository structure
 
-## `Full-CSL-Task1/`
-Files for the testing-set performance assessment under the full conformal setting.
+```
+CSL/
+├── Full-CSL-Task1/
+│   ├── full_csl_test_performance.R              # Full-CSL evaluation on test set
+│   ├── plot_full_csl_test_intervals.R           # Plots of prediction intervals
+│   ├── results_full_csl_test_full_data.xlsx     # Results: full dataset
+│   └── results_full_csl_test_outlier_removed.xlsx  # Results: outliers removed (> 1.5)
+│
+├── Full-CSL-Task2/
+│   ├── full_csl_profiles_continuous.R           # Continuous covariate profiles
+│   ├── full_csl_profiles_categorical.R          # Categorical covariate profiles + plots
+│   ├── plot_full_csl_profiles.R                 # Plots for continuous covariate results
+│   ├── results_full_csl_profiles_full_data.xlsx # Results: full dataset
+│   └── results_full_csl_profiles_outlier_removed.xlsx  # Results: outliers removed
+│
+├── Split-CSL-Task1/
+│   └── split_csl_test_performance.R             # Split-CSL evaluation + plots
+│
+├── Split-CSL-Task2/
+│   ├── split_csl_profiles_continuous.R          # Continuous covariate profiles + plots
+│   └── split_csl_profiles_categorical.R         # Categorical covariate profiles + plots
+│
+├── classical_pi_benchmark.R                     # Benchmark: classical LM prediction intervals
+├── split_rule_sensitivity.R                     # Sensitivity: alternative train/calibration splits
+└── tree_plots.R                                 # Variable importance and tree-based plots
+```
 
-- `full_csl_test_performance.R`: main script for evaluating Full-CSL on the testing set.
-- `results_full_csl_test_full_data.xlsx`: results for Full-CSL based on the full data set.
-- `results_full_csl_test_outlier_removed.xlsx`: results for Full-CSL after removing observations with response values greater than 1.5.
-- `plot_full_csl_test_intervals.R`: script for plotting Full-CSL prediction intervals for ordered testing observations.
+## Case study summary
 
-## `Full-CSL-Task2/`
-Files for the covariate-specific analysis under the full conformal setting.
+| Task | Setting | Description |
+|---|---|---|
+| Task 1 | Full-CSL and Split-CSL | Empirical coverage and average interval width on the test set |
+| Task 2 | Full-CSL and Split-CSL | Covariate-specific prediction intervals for three representative profiles |
+| Benchmark | — | Classical linear model prediction intervals for comparison |
+| Sensitivity | Split-CSL | Alternative training–calibration split ratios |
 
-- `full_csl_profiles_continuous.R`: main script for the analysis of continuous covariates across three representative profiles.
-- `full_csl_profiles_categorical.R`: main script for the analysis of categorical covariates across three representative profiles, including the corresponding plots.
-- `results_full_csl_profiles_full_data.xlsx`: results for the continuous covariate-specific analysis based on the full data set.
-- `results_full_csl_profiles_outlier_removed.xlsx`: results for the continuous covariate-specific analysis after removing observations with response values greater than 1.5.
-- `plot_full_csl_profiles.R`: script for plotting Full-CSL covariate-specific results for continuous covariates.
+## Data
 
-## `Split-CSL-Task1/`
-Files for the testing-set performance assessment under the split conformal setting.
+The analysis uses data from the **National Health and Nutrition Examination
+Survey (NHANES), August 2021–August 2023 cycle**, publicly available at
+[https://www.cdc.gov/nchs/nhanes](https://www.cdc.gov/nchs/nhanes). The data
+are not bundled in this repository and should be downloaded directly from the
+NHANES website. Participants with kidney conditions or pregnancy are excluded,
+and the response (serum creatinine) is log-transformed prior to modelling.
 
-- `split_csl_test_performance.R`: main script for evaluating Split-CSL on the testing set, including the corresponding plots.
+## Citation
 
-## `Split-CSL-Task2/`
-Files for the covariate-specific analysis under the split conformal setting.
+If you use this code, please cite:
 
-- `split_csl_profiles_continuous.R`: script for the analysis of continuous covariates across three representative profiles, including the corresponding plots.
-- `split_csl_profiles_categorical.R`: script for the analysis of categorical covariates across three representative profiles, including the corresponding plots.
-
-## Additional files
-
-- `classical_pi_benchmark.R`: benchmark analysis based on classical linear-model prediction intervals.
-- `split_rule_sensitivity.R`: sensitivity analysis for alternative training-calibration split ratios in Split-CSL.
-- `tree_plots.R`: scripts for variable-importance and tree-based plots used to interpret the dominant random forest learner.
-
-
+```bibtex
+@article{wu:2026,
+  author  = {Wu, Z. and Leisen, F. and Luque-Fernandez, M.A. and Rubio, F.J.},
+  title   = {Conformalized Super Learning for Uncertainty Quantification
+             in Predictions},
+  journal = {Submitted},
+  year    = {2026}
+}
+```
 
