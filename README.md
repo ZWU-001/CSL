@@ -18,9 +18,9 @@ construct prediction intervals.
 The following R packages are required:
 
 ```r
-install.packages(c("SuperLearner", "glmnet", "mgcv", "nnet",
-                   "randomForest", "gamlss", "conformalInference",
-                   "ggplot2", "readxl", "writexl"))
+install.packages(c("mvtnorm", "gamlss", "nnls", "mgcv",
+  "nnet", "randomForest", "glmnet", "nhanesA", "dplyr",
+  "tidyr", "labelled", "ggplot2", "rpart", "rpart.plot"))
 ```
 
 > Verify exact dependencies against the `library()` calls at the top of each
