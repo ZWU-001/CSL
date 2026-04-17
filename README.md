@@ -81,9 +81,7 @@ If you use this code, please cite:
 ```bibtex
 @article{wu:2026,
   author  = {Wu, Z. and Leisen, F. and Luque-Fernandez, M.A. and Rubio, F.J.},
-  title   = {Conformalized Super Learning for Uncertainty Quantification
-             in Predictions},
-  journal = {Submitted},
+  title   = {Conformalized Super Learning for Uncertainty Quantification in Predictions},
   year    = {2026}
 }
 ```
