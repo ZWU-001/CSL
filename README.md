@@ -19,8 +19,9 @@ The following R packages are required:
 
 ```r
 install.packages(c("mvtnorm", "gamlss", "nnls", "mgcv",
-  "nnet", "randomForest", "glmnet", "nhanesA", "dplyr",
-  "tidyr", "labelled", "ggplot2", "rpart", "rpart.plot"))
+                   "nnet", "randomForest", "glmnet", "nhanesA",
+                   "dplyr", "tidyr", "labelled", "ggplot2",
+                   "rpart", "rpart.plot", "readxl"))
 ```
 
 > Verify exact dependencies against the `library()` calls at the top of each
