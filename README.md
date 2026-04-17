@@ -10,8 +10,8 @@ study in:
 > *Submitted.*
 
 The **Conformalized Super Learner (CSL)** framework combines
-**conformal prediction (CP)** with a **Super Learner (SL)** ensemble to
-construct prediction intervals with finite-sample coverage guarantees, without
+**conformal prediction (CP)** with a **Super Learner (SL)** ensemble and the majority vote to
+construct prediction intervals.
 
 ## Requirements
 
