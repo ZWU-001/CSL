@@ -72,7 +72,8 @@ Survey (NHANES), August 2021–August 2023 cycle**, publicly available at
 [https://www.cdc.gov/nchs/nhanes](https://www.cdc.gov/nchs/nhanes). The data
 are not bundled in this repository and should be downloaded directly from the
 NHANES website. Participants with kidney conditions or pregnancy are excluded,
-and the response (serum creatinine) is log-transformed prior to modelling.
+and the response (serum creatinine) is log-transformed prior to modelling. The data
+preparation process is included in all files.
 
 ## Citation
 
