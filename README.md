@@ -6,7 +6,7 @@ This repository contains the R code and results used to reproduce the case
 study in:
 
 > Wu, Z., Leisen, F., Luque-Fernandez, M.A. and Rubio, F.J. (2026).
-> Conformalized Super Learning for Uncertainty Quantification in Predictions.
+> Conformalized Super Learner.
 > *Submitted.*
 
 The **Conformalized Super Learner (CSL)** framework combines
@@ -82,7 +82,7 @@ If you use this code, please cite:
 ```bibtex
 @article{wu:2026,
   author  = {Wu, Z. and Leisen, F. and Luque-Fernandez, M.A. and Rubio, F.J.},
-  title   = {Conformalized Super Learning for Uncertainty Quantification in Predictions},
+  title   = {Conformalized Super Learner},
   year    = {2026}
 }
 ```
