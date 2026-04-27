@@ -7,7 +7,7 @@ study in:
 
 > Wu, Z., Leisen, F., Luque-Fernandez, M.A. and Rubio, F.J. (2026).
 > Conformalized Super Learner.
-> *Submitted.*
+> *Submitted.* [Preprint](http://arxiv.org/abs/2604.22391)
 
 The **Conformalized Super Learner (CSL)** framework combines
 **conformal prediction (CP)** with a **Super Learner (SL)** ensemble and the majority vote to
