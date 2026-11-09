@@ -31,23 +31,23 @@ install.packages(c("mvtnorm", "gamlss", "nnls", "mgcv",
 
 ```
 CSL/
-├── Full-Task1-Testing Set Performance/
+├── Full-CSL-Testing Set Performance/
 │   ├── full_csl_test_performance.R              # Full-CSL evaluation on test set
 │   ├── plot_full_csl_test_intervals.R           # Plots of prediction intervals
 │   ├── results_full_csl_test_full_data.xlsx     # Results: full dataset
 │   └── results_full_csl_test_outlier_removed.xlsx  # Results: outliers removed (> 1.5)
 │
-├── Full-Task2-Covariate-specific Analysis/
+├── Full-CSL-Covariate-specific Analysis/
 │   ├── full_csl_profiles_continuous.R           # Continuous covariate profiles
 │   ├── full_csl_profiles_categorical.R          # Categorical covariate profiles + plots
 │   ├── plot_full_csl_profiles.R                 # Plots for continuous covariate results
 │   ├── results_full_csl_profiles_full_data.xlsx # Results: full dataset
 │   └── results_full_csl_profiles_outlier_removed.xlsx  # Results: outliers removed
 │
-├── Split-Task1-Testing Set Performance/
+├── Split-CSL-Testing Set Performance/
 │   └── split_csl_test_performance.R             # Split-CSL evaluation + plots
 │
-├── Split-Task2-Covariate-specific Analysis/
+├── Split-CSL-Covariate-specific Analysis/
 │   ├── split_csl_profiles_continuous.R          # Continuous covariate profiles + plots
 │   └── split_csl_profiles_categorical.R         # Categorical covariate profiles + plots
 │
@@ -60,8 +60,8 @@ CSL/
 
 | Task | Setting | Description |
 |---|---|---|
-| Task 1-Testing Set Performance | Full-CSL and Split-CSL | Empirical coverage and average interval width on the test set |
-| Task 2-Covariate-specific Analysis | Full-CSL and Split-CSL | Covariate-specific prediction intervals for three representative profiles |
+| Testing Set Performance | Full-CSL and Split-CSL | Empirical coverage and average interval width on the test set |
+| Covariate-specific Analysis | Full-CSL and Split-CSL | Covariate-specific prediction intervals for three representative profiles |
 | Benchmark | — | Classical linear model prediction intervals for comparison |
 | Sensitivity | Split-CSL | Alternative training–calibration split ratios |
 
